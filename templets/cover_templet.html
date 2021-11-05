@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cover_name}}</title>
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+    <script src="{%static 'js/loader.js'%}"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #272727;
+            color: white;
+            flex-direction: column;
+            overflow-x: hidden;
+            height: 100vh;
+
+        }
+        .image {
+            display: block;
+            border: thin solid #111;
+            background-color: skyblue;
+        }
+
+        small {
+            color: skyblue;
+            border: thin solid skyblue;
+            padding: 1vh 2vh;
+        }
+
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+        @media (min-width:425px) {
+            body{
+                height: max-content;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="dot"></div>
+        <div id="mainload">
+            <h1>loading<b>...</b></h1>
+        </div>
+        <div id="box">
+            <div id="circle1"></div>
+            <div id="circle2"></div>
+        </div>
+    </div>
+    <h1>Reload page for new image</h1>
+    <small>for Downloading image follow this step
+        <br>
+        step no 1 : right click on image and select save image as. ===> for computer user. <br>
+        step no 1 : long press on image and select download. ===> for mobile user.
+    </small>
+    <br>
+    <div class="image">
+        <br>
+        <img src="{{url}}" alt="">
+    </div>
+</body>
+
+</html>

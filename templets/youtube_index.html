@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUTUBE | URL</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}"> 
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="{% static 'css/YoutubeStyle.css' %}">
+   <script src="{%static 'js/loader.js'%}"></script></head>
+
+<body>
+   <div id="loader">
+        <div class="dot"></div>
+        <div id="mainload">
+            <h1>loading<b>...</b></h1>
+        </div>
+        <div id="box">
+            <div id="circle1"></div>
+            <div id="circle2"></div>
+        </div>
+    </div>
+    <div id="bars">
+        <i class="bi bi-code-slash text-dark font-weight-bolder" onclick="hidenavbar()"></i>
+    </div>
+    <div id="navbar">
+        <div id="linkSection">
+            <div class="links">
+                <a href="home" class="text-dark font-weight-bolder bi-house"><br> HOME</a>
+            </div>
+            <div class="links">
+                <i class="bi bi-youtube text-dark font-weight-bolder" title="Youtube Dowonload home"></i>
+                <a href="youtube_index" class="text-dark font-weight-bolder "><br> Youtube</a>
+            </div>
+            <div class="links">
+                <i class="bi bi-instagram text-dark font-weight-bolder" title="instagram Dowonload home"></i>
+
+                <a href="instagram_index" class="text-dark font-weight-bolder "><br>instagram</a>
+            </div>
+            <div class="links">
+                <i class="bi bi-image text-dark font-weight-bolder" title="instagram Dowonload home"></i>
+                <a href="unsplash_index" class="text-dark font-weight-bolder"><br>image genrater</a>
+            </div>
+        </div>
+    </div>
+    <div id="section1">
+        <div class="container ">
+            <div class="row my-5 py-5">
+                <div class="col-12 text-capitalize" id="inputarea">
+                    <!-- action should get link bt get-streams html files -->
+                    <form action="data" method="POST">
+                        {% csrf_token %}
+                        <h3 class="font-weight-bolder">Online Video Downloader</h3>
+                        <input type="url" name="link" placeholder="Paste Your Video Link Here" required class="my-2">
+                        <br>
+                        <input type="submit" value="Download" class="btn btn-info my-2" style="width:max-content">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+
+        
+
+
+        var navbar = document.getElementById('navbar');
+        var bars = document.getElementById('bars');
+        var count = 0;
+        function hidenavbar() {
+            if (count == 0) {
+                bars.style.transform = 'scale(1.2)';
+                navbar.style.display = "block";
+                count = 1;
+            }
+            else {
+                bars.style.transform = 'scale(1)';
+                navbar.style.display = "none";
+                count = 0;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
